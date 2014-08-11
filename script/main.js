@@ -531,7 +531,7 @@ $(function () {
     if(qss.length == 0) {
       return {
         showOpen: 'true',
-        showClosed: 'true',
+        showClosed: false,
         showCommented: 'true',
         showUncommented: 'true',
         showIssues: 'true',
