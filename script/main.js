@@ -29,7 +29,7 @@ $(function () {
   // labelForNewCommitters is the label you use for simple issues that are suitable
   // for new committers.
   // Will expose a new button "show issues for new committers" if not empty
-  var labelForNewCommitters = '';
+  var labelForNewCommitters = 'starter';
 
   // Startup
 
