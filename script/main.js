@@ -73,7 +73,7 @@ $(function () {
   }
 
   // Show loading message in header
-  $('h1.title').append(' is loading github  / <a href="https://github.com/'+githubOrganisation+'">'+githubOrganisation+'</a>');
+  $('h1.title .titleMessage').append(' is loading github  / <a href="https://github.com/'+githubOrganisation+'">'+githubOrganisation+'</a>');
 
   // Icheck is a little umständlich here
   $('input.orange').iCheck({
@@ -243,13 +243,16 @@ $(function () {
     return $.when.apply(this, calls).then(function() {
       var results = Array.prototype.slice.call(arguments);
       results.unshift(data);
-      results = results.map(mapDataItems);
+      results = _.compact(results.map(mapDataItems));
       var flatsults = flatten(results);
       return flatsults;
     });
   }
 
   function mapDataItems (data){
+    if(typeof data === 'string' || data.responseJSON){
+      return null;
+    }
     return data.items || data[0].items;
   }
 
